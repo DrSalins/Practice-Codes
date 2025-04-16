@@ -58,3 +58,34 @@ function reduceEx() {
   return sum;
 }
 console.log(reduceEx());
+/*Example Flattening Arrays*/
+function flattened() {
+  const arrays = [
+    [1, 2],
+    [3, 4],
+    [5, 6],
+  ];
+  const flattened = arrays.reduce(
+    (accumlator, currentValue) => accumlator.concat(currentValue),
+    []
+  );
+  return flattened;
+}
+console.log(flattened());
+/*Example of counting occurences*/
+function occurence() {
+  const fruits = [
+    "apples",
+    "oranges",
+    "mangoes",
+    "apples",
+    "cherries",
+    "oranges",
+  ];
+  const count = fruits.reduce((accumlator, currentValue) => {
+    accumlator[currentValue] = (accumlator[currentValue] || 0) + 1;
+    return accumlator;
+  }, {});
+  return count;
+}
+console.log(occurence());
