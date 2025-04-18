@@ -23,7 +23,7 @@ console.log(ageIncrease());
 //Utilizing Filter (Creates a New Array that contains the element that can pass a test)
 function adultAge() {
   const rowofAge = [11, 12, 15, 17, 18, 25, 19, 23];
-  const adults = rowofAge.filter((rowofAge) => rowofAge >= 18);
+  const adults = rowofAge.filter((a) => a >= 18);
   return adults;
 }
 console.log(adultAge());
@@ -73,19 +73,34 @@ function flattened() {
 }
 console.log(flattened());
 /*Example of counting occurences*/
-function occurence() {
-  const fruits = [
-    "apples",
-    "oranges",
-    "mangoes",
-    "apples",
-    "cherries",
-    "oranges",
-  ];
-  const count = fruits.reduce((accumlator, currentValue) => {
-    accumlator[currentValue] = (accumlator[currentValue] || 0) + 1;
+function demo() {
+  const words = ["yes", "no", "yes", "maybe", "yes", "no"];
+  const count = words.reduce((accumlator, currentValue) => {
+    if (accumlator[currentValue]) {
+      accumlator[currentValue] += 1;
+    } else {
+      accumlator[currentValue] = 1;
+    }
     return accumlator;
   }, {});
   return count;
 }
-console.log(occurence());
+console.log(demo());
+/*Truth Tables*/
+const a = false;
+const b = true;
+const c = false;
+
+console.log((a && b) || !c);
+/*Example*/
+function canWatchMovie(age, hasTicket, isBanned) {
+  if (age >= 18 && hasTicket && !isBanned) {
+    return "Enjoy the movie!";
+  } else {
+    return "You cannot watch the movie!";
+  }
+}
+console.log(canWatchMovie(20, true, false)); // ✅ Enjoy the movie!
+console.log(canWatchMovie(17, true, false)); // ❌ You cannot watch the movie!
+console.log(canWatchMovie(25, false, false)); // ❌ You cannot watch the movie!
+console.log(canWatchMovie(30, true, true)); // ❌ You cannot watch the movie!
