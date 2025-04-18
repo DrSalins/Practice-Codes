@@ -104,3 +104,25 @@ console.log(canWatchMovie(20, true, false)); // ✅ Enjoy the movie!
 console.log(canWatchMovie(17, true, false)); // ❌ You cannot watch the movie!
 console.log(canWatchMovie(25, false, false)); // ❌ You cannot watch the movie!
 console.log(canWatchMovie(30, true, true)); // ❌ You cannot watch the movie!
+/*Example*/
+const canEnterClub = (age, hasID, isWithGuardian, banned) => {
+  if (
+    (age >= 18 && hasID && !banned) ||
+    (age >= 16 && hasID && isWithGuardian && !banned)
+  ) {
+    return "Welcome To The Club";
+  } else {
+    return "Entry denied";
+  }
+};
+
+console.log(canEnterClub(20, true, false, false));
+// Expected: "Welcome To The Club"
+console.log(canEnterClub(17, true, true, false));
+// Expected: "Welcome To The Club"
+console.log(canEnterClub(17, true, false, false));
+// Expected: "Entry denied"
+console.log(canEnterClub(19, false, false, false));
+// Expected: "Entry denied"
+console.log(canEnterClub(18, true, false, true));
+// Expected: "Entry denied"
